@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>083AF000-6750-4AF9-BABC-73F15DE49891</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SQLitePresistenceDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C83DF23BEE0A11DCC8042737EB65A36A59B837C2</key>
+		<string>https://github.com/Demon-liao/SQLitePresistenceDemo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SQLitePresistenceDemo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C83DF23BEE0A11DCC8042737EB65A36A59B837C2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Demon-liao/SQLitePresistenceDemo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C83DF23BEE0A11DCC8042737EB65A36A59B837C2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C83DF23BEE0A11DCC8042737EB65A36A59B837C2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SQLitePresistenceDemo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

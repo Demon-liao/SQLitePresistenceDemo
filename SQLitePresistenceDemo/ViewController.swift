@@ -8,11 +8,13 @@
 
 import UIKit
 //必须加上，别名,使用C中的sqlite3_bind_text函数，不用别名的话，貌似有名字冲突编译不通过
-@asmname("sqlite3_bind_text") func sqlite3_bind_string(COpaquePointer, Int32, CString, n: Int32, CFunctionPointer<((UnsafePointer<()>) -> Void)>) -> CInt
+//@asmname("sqlite3_bind_text") func sqlite3_bind_string(COpaquePointer, Int32, String, n: Int32, CFunctionPointer<((UnsafePointer<()>) -> Void)>) -> CInt
 
 class ViewController: UIViewController {
    
-    @IBOutlet strong var lineFields: NSArray!
+  //  @IBOutlet strong var lineFields: NSArray!
+    
+    @IBOutlet  var lineFields: [UITextField]!
     
     
     var dataFilePath:NSString{
@@ -27,7 +29,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var database:COpaquePointer = nil
-     
         var result=sqlite3_open(self.dataFilePath.UTF8String, &database)
         if(result != SQLITE_OK){
             sqlite3_close(database)
@@ -55,9 +56,10 @@ class ViewController: UIViewController {
             println(_prepare)
             while(sqlite3_step(statement) == SQLITE_ROW){
                 var row:Int32 = sqlite3_column_int(statement, 0)
+
                 var _txt = UnsafePointer<Int8>(sqlite3_column_text(statement, 1))
                 println(row)
-                var rowData = CString(_txt)
+                var rowData = _txt//String.withCString(_txt)
                 var buf:NSString
                 if(String.fromCString(rowData) == nil){
                     buf = ""
@@ -87,6 +89,7 @@ class ViewController: UIViewController {
         }
         println(11)
         for(var i = 0; i<4; i++){
+            
             var field:UITextField=self.lineFields[i] as UITextField
             var  update:NSString = "INSERT OR REPLACE INTO FIELDS (ROW, FIELD_DATA) VALUES (?, ?);"
             var errorMsg:UnsafePointer<Int8>=nil
@@ -95,7 +98,7 @@ class ViewController: UIViewController {
             if( ret == SQLITE_OK){
                 //绑定数据，绑定问号里面的值
                 sqlite3_bind_int(stmt, 1, Int32(i))
-                sqlite3_bind_string(stmt, Int32(2), (field.text as NSString).UTF8String , Int32(-1), nil)
+                sqlite3_bind_text(stmt, Int32(2), (field.text as NSString).UTF8String , Int32(-1), nil)
             }
             if(sqlite3_step(stmt) !=  SQLITE_DONE){
                 println("22")
